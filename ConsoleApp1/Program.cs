@@ -4,12 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Lesson_5
+namespace ConsoleApp1
 {
     class Program
     {
         static void Main(string[] args)
         {
+            Start:
+
             int cpuNumber;
             int tries = 0;
             string name;
@@ -32,7 +34,7 @@ namespace Lesson_5
                 if (userNumber > cpuNumber)
                 {
                     Console.WriteLine($"Cpu number is smaller.");
-                    
+
                 }
                 else if (userNumber < cpuNumber)
                 {
@@ -40,8 +42,20 @@ namespace Lesson_5
                 }
                 else
                 {
-                    Console.WriteLine("Got me!");
-                    gameOver = true;
+                    Console.WriteLine("Got me! Play again? Y/N");
+                    string userAnswer = Console.ReadLine();
+                    //userAnswer.ToUpper(); or muutuja.ToLower()//muudab muutuja suuremaks
+
+                    if (userAnswer.ToUpper() == "Y")
+                    {
+                        goto Start;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Game over!");
+                        gameOver = true;
+                    }
+
                 }
 
 
